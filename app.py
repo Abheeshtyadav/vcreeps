@@ -124,4 +124,4 @@ def show():
     return render_template("show.html", data=raw_data)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
