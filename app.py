@@ -20,7 +20,7 @@ if os.environ.get("FLASK_ENV") == "development" or not DATABASE_URL:
 else:
     if DATABASE_URL.startswith("postgres://"):
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
-    app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///local.db')
 
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
