@@ -10,12 +10,12 @@
           
 
           <div class="mb-3">
-            <label for="uname" class="form-label">Creeps insta handle or whatsapp number or any from which person contacted you(could be many)</label>
-            <input type="text" class="form-control" id="contact" name="contact" placeholder="Creeps number= 1234567890 , insta handle= @idk">
+            <label for="uname" class="form-label" required>Creeps insta handle or whatsapp number or any from which person contacted you(could be many)</label>
+            <input type="text" class="form-control" id="contact" name="contact" required placeholder="Creeps number= 1234567890 , insta handle= @idk">
           </div>
 
           <div class="mb-3">
-            <label for="ureview" class="form-label fw-semibold">Description</label>
+            <label for="ureview" class="form-label fw-semibold" required>Description</label>
             <textarea class="form-control" id="desc" rows="4" name="desc" required placeholder="Creeps behaviour or any additional info"></textarea>
           </div>
           <div class="mb-3">
@@ -24,7 +24,7 @@
             <div class="form-text">You can pick up to 10 photos to attach to your report.</div>
           </div>
           <div class="d-grid">
-            <button type="submit" class="btn btn-success btn-lg" id="submitBtn">Upload pics</button>
+            <button type="submit" class="btn btn-success btn-lg" id="submitBtn">Add to database</button>
           </div>
           <small>Sometimes screenshots may take a lot of time to process....It is recommended to refresh the site then again fill in the details</small>
     </form>
@@ -41,7 +41,7 @@
   
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
-    btn.innerText = "Uploading Photos...";
+    btn.innerText = "Saving......";
     return true;
   }
 </script>
