@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<a href="/">Return Back to home</a>
     <form action="{{ url_for('picu') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateImageLimit()">
 
           <div class="mb-3">
@@ -10,7 +11,7 @@
 
           <div class="mb-3">
             <label for="uname" class="form-label">Creeps insta handle or whatsapp number or any from which person contacted you(could be many)</label>
-            <input type="text" class="form-control" id="contact" name="contact" placeholder="Creeps number= 534513213534 , insta handle= @idk">
+            <input type="text" class="form-control" id="contact" name="contact" placeholder="Creeps number= 1234567890 , insta handle= @idk">
           </div>
 
           <div class="mb-3">
@@ -20,11 +21,12 @@
           <div class="mb-3">
             <label for="reviewImages" class="form-label fw-semibold">Add Screen shots(optional)</label>
             <input class="form-control" type="file" id="reviewImages" name="review_images" accept="image/*" multiple>
-            <div class="form-text">You can pick up to 10 photos to attach to your review.</div>
+            <div class="form-text">You can pick up to 10 photos to attach to your report.</div>
           </div>
           <div class="d-grid">
             <button type="submit" class="btn btn-success btn-lg" id="submitBtn">Upload pics</button>
           </div>
+          <small>Sometimes screenshots may take a lot of time to process....It is recommended to refresh the site then again fill in the details</small>
     </form>
 
     <script>

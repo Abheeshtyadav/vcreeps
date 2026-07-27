@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="/">Return Back to home</a>
 <div class="container my-5">
     <h1 class="mb-4 text-center fw-bold text-white">Chat Logs & Reports</h1>
 
     {% if data %}
-        <!-- CSS Column Layout for Variable Height Screenshots -->
+        
         <div class="chat-masonry">
             {% for i in data %}
                 <div class="chat-card-item mb-4">
                     <div class="card shadow-lg border-secondary bg-dark rounded-4 overflow-hidden dark-chat-card">
                         
-                        <!-- Scrollable Wrapper optimized for Full/Tall Screenshots -->
+                        
                         {% if i.image_list %}
     <div class="card-img-wrapper bg-black border-bottom border-secondary p-2">
         <div class="tall-ss-scroll-container">
@@ -36,7 +37,7 @@
                                 </p>
                             {% endif %}
                         </div>
-
+                        <small>Report id: {{i._id}}</small>
                     </div>
                 </div>
             {% endfor %}
@@ -48,11 +49,11 @@
     {% endif %}
 </div>
 
-<!-- Custom CSS for Dark Theme & Tall Screenshots -->
+
 <style>
     
 
-    /* Masonry Grid Setup */
+   
     .chat-masonry {
         column-count: 1;
         column-gap: 1.5rem;
@@ -64,7 +65,7 @@
         break-inside: avoid;
     }
 
-    /* Dark Theme Card Polish */
+    
     .dark-chat-card {
         background-color: #1e1e1e !important;
         border: 1px solid #2d2d2d !important;
@@ -77,19 +78,19 @@
         border-color: #444444 !important;
     }
 
-    /* Scrollable Container for Tall Screenshots */
+ 
     .card-img-wrapper {
         background-color: #080808;
     }
 
     .tall-ss-scroll-container {
-        max-height: 480px; /* Adjust height limit here if needed */
+        max-height: 480px;
         overflow-y: auto;
         overflow-x: hidden;
         padding-right: 4px;
     }
 
-    /* Custom Dark Scrollbar */
+   
     .tall-ss-scroll-container::-webkit-scrollbar {
         width: 6px;
     }
@@ -105,11 +106,11 @@
         background: #555555;
     }
 
-    /* Full Screenshot View Adjustments */
+  
     .full-ss-img {
         width: 100%;
         height: auto;
-        object-fit: contain; /* Prevents clipping or awkward cropping */
+        object-fit: contain; 
         border: 1px solid #282828;
         transition: opacity 0.2s ease, border-color 0.2s ease;
     }
@@ -119,7 +120,7 @@
         border-color: #555555;
     }
 
-    /* Text Formatting */
+   
     .text-gradient-danger {
         color: #ff6b6b !important;
     }

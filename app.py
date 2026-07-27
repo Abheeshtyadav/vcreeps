@@ -45,7 +45,7 @@ class remove(db.Model):
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("home.html")
 
 @app.route("/test")
 def test():

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+   
+    <div class="report-header text-center py-4 px-3 mb-5 rounded-4 bg-dark border border-secondary shadow-lg">
+        <h1 class="fw-bold text-white mb-2 fs-2 fs-md-1">Encountered Inappropriate Behavior?</h1>
+        <h3 class="text-secondary fw-normal fs-5 mb-4">Help us build a safe community by reporting it here.</h3>
+        
+        
+        <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-3">
+            <a href="/creep" class="btn btn-danger btn-lg rounded-pill fw-semibold px-4 py-2 shadow-sm action-btn">
+                <i class="bi bi-shield-exclamation me-1"></i> Report an Incident
+            </a>
+            <a href="/show" class="btn btn-outline-light btn-lg rounded-pill fw-semibold px-4 py-2 shadow-sm action-btn">
+                <i class="bi bi-list-ul me-1"></i> View Reported List
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .action-btn {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.25) !important;
+    }
+</style>
+{% endblock content %}
