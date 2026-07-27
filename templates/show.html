@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center fw-bold text-white">Chat Logs & Reports</h1>
+
+    {% if data %}
+        <!-- CSS Column Layout for Variable Height Screenshots -->
+        <div class="chat-masonry">
+            {% for i in data %}
+                <div class="chat-card-item mb-4">
+                    <div class="card shadow-lg border-secondary bg-dark rounded-4 overflow-hidden dark-chat-card">
+                        
+                        <!-- Scrollable Wrapper optimized for Full/Tall Screenshots -->
+                        {% if i.image_list %}
+    <div class="card-img-wrapper bg-black border-bottom border-secondary p-2">
+        <div class="tall-ss-scroll-container">
+            {% for img in i.image_list %}
+                <a href="{{ img }}" target="_blank" rel="noopener noreferrer" class="d-block text-center mb-2">
+                    <img src="{{ img }}" class="img-fluid rounded-3 full-ss-img" alt="Chat screenshot" loading="lazy">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+                        <div class="card-body p-3 bg-dark text-light">
+                            <h6 class="fw-bold text-gradient-danger mb-1">{{ i.aname }}</h6>
+                            <p class="text-secondary small mb-2">
+                                <strong class="text-light">Contact:</strong> {{ i.contact }}
+                            </p>
+                            
+                            {% if i.desc %}
+                                <p class="card-text small text-light-50 border-top border-secondary pt-2 mt-2 mb-0">
+                                    {{ i.desc }}
+                                </p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-dark text-center border-secondary text-light shadow-sm">
+            No reports found.
+        </div>
+    {% endif %}
+</div>
+
+<!-- Custom CSS for Dark Theme & Tall Screenshots -->
+<style>
+    
+
+    /* Masonry Grid Setup */
+    .chat-masonry {
+        column-count: 1;
+        column-gap: 1.5rem;
+    }
+    @media (min-width: 576px) { .chat-masonry { column-count: 2; } }
+    @media (min-width: 992px) { .chat-masonry { column-count: 3; } }
+    
+    .chat-card-item {
+        break-inside: avoid;
+    }
+
+    /* Dark Theme Card Polish */
+    .dark-chat-card {
+        background-color: #1e1e1e !important;
+        border: 1px solid #2d2d2d !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .dark-chat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+        border-color: #444444 !important;
+    }
+
+    /* Scrollable Container for Tall Screenshots */
+    .card-img-wrapper {
+        background-color: #080808;
+    }
+
+    .tall-ss-scroll-container {
+        max-height: 480px; /* Adjust height limit here if needed */
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding-right: 4px;
+    }
+
+    /* Custom Dark Scrollbar */
+    .tall-ss-scroll-container::-webkit-scrollbar {
+        width: 6px;
+    }
+    .tall-ss-scroll-container::-webkit-scrollbar-track {
+        background: #121212;
+        border-radius: 4px;
+    }
+    .tall-ss-scroll-container::-webkit-scrollbar-thumb {
+        background: #333333;
+        border-radius: 4px;
+    }
+    .tall-ss-scroll-container::-webkit-scrollbar-thumb:hover {
+        background: #555555;
+    }
+
+    /* Full Screenshot View Adjustments */
+    .full-ss-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* Prevents clipping or awkward cropping */
+        border: 1px solid #282828;
+        transition: opacity 0.2s ease, border-color 0.2s ease;
+    }
+
+    .full-ss-img:hover {
+        opacity: 0.9;
+        border-color: #555555;
+    }
+
+    /* Text Formatting */
+    .text-gradient-danger {
+        color: #ff6b6b !important;
+    }
+
+    .text-light-50 {
+        color: #c5c5c5 !important;
+    }
+</style>
+{% endblock content %}
