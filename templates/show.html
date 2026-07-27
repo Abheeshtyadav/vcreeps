@@ -2,6 +2,18 @@
 
 {% block content %}
 <a href="/">Return Back to home</a>
+
+{% with msg = get_flashed_messages(with_categories=true) %}
+      {% if msg %}
+        <div class="flash-messages mt-3 mb-3">
+          {% for category, message in msg %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+              {{ message | safe }} <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
 <div class="container my-5">
     <h1 class="mb-4 text-center fw-bold text-white">Chat Logs & Reports</h1>
 
