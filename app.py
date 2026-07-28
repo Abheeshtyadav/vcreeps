@@ -107,7 +107,7 @@ def picu():
         db.session.commit()
         
         flash("Successfully submitted the report.", "success")
-        return redirect(url_for("home"))
+        return redirect(url_for("show"))
 
     return render_template("report.html")
 
